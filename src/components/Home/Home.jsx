@@ -4,14 +4,13 @@ import './Home.css'
 
 function Home() {
     const [typeList, setTypeList] = useState([])
-    // const value = { details, setDetails }
+    const typeImgList = [];
 
     useEffect(() => {
         fetch('https://pokeapi.co/api/v2/type/')
             .then(res => res.json())
             .then(data => {
                 setTypeList(data.results)
-                console.log(data.results);
             })
     }, [])
 
@@ -20,7 +19,8 @@ function Home() {
             <button>Reset</button>
             <div className = 'pokemon-types-box'>
                 {typeList.map(pokemonType => {
-                    return <div key={typeList.indexOf(pokemonType)} className='pokemon-type-card'>{pokemonType.name}</div>;
+                    // instantiate the type cards here
+                    return <img key={typeList.indexOf(pokemonType)} className='pokemon-type-card' alt={pokemonType.name} src={typeImgList[typeList.indexOf(pokemonType)]}></img>;
                 })}
             </div>
         </>
