@@ -18,19 +18,19 @@ export default function PokemonCard(data) {
 
 
     return (
-        (pokemon?.sprites?.other?.showdown?.front_default)? (
-            <div className='pokemon-card'>
-                <img src={pokemon?.sprites?.other?.showdown?.front_default ?? pokemon?.sprites?.front_default}/>
-                <p>{pokemon?.name}</p>
-            </div>
-        ):
+        (pokemon?.sprites) ?
+            ((pokemon?.sprites?.other?.showdown?.front_default) ? (
+                <div className='pokemon-card'>
+                    <img src={pokemon?.sprites?.other?.showdown?.front_default ?? pokemon?.sprites?.front_default} />
+                    <p>{pokemon?.name}</p>
+                </div>
+            ) :
+                (
+                    <></>
+                )) :
             (
-                <></>
-         )
-        // <div className='pokemon-card'>
-        //     <img src={pokemon?.sprites?.other?.showdown?.front_default ?? pokemon?.sprites?.front_default}/>
-        //     <p>{pokemon?.name}</p>
-        // </div>
+                <div className='loader'></div>
+            )
     )
 }
 
