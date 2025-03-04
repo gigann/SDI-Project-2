@@ -1,24 +1,65 @@
-.type-details-box {
+p {
+    padding: 0px;
+    margin: 0px;
+}
+
+.pokemon-type-row {
+
+}
+
+.pokemon-type-effectiveness-cols {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content:start;
+    align-items: start;
     flex-wrap: wrap;
     flex-direction: row;
 }
 
-.type-details {
-
+/* .strong-col {
+    background-color: darkgreen;
 }
 
-.strong-types {
-    background-color: green;
+.neutral-col {
+    background-color: darkgoldenrod;
 }
 
-.neutral-types {
-background-color: gray;
+.weak-col {
+    background-color: darkred;
+} */
+
+.double-damage-to, .double-damage-from, .half-damage-to, .half-damage-from, .no-damage-to, .no-damage-from, .neutral-damage-from, .neutral-damage-to{
+    box-shadow: 4px 4px 4px 4px black;
+    margin: 10px;
 }
 
+.double-damage-to {
+    background-color: darkgreen;
+}
 
-.weak-types {
-background-color: red;
+.double-damage-from {
+    background-color: darkred;
+}
+
+.half-damage-to {
+    background-color: darkred;
+}
+
+.half-damage-from {
+    background-color: darkgreen;
+}
+
+.no-damage-to {
+    background-color: darkred;
+}
+
+.no-damage-from {
+    background-color: darkgreen;
+}
+
+.neutral-damage-to {
+    background-color: darkgoldenrod;
+}
+
+.neutral-damage-from {
+    background-color: darkgoldenrod;
 }
