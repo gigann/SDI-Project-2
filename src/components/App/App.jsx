@@ -38,8 +38,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/battle' element={<Battle />} />
-          <Route path='/pokemonDetails' element={<PokemonDetails />} />
           <Route path='/pokemonTypeList' element={<PokemonTypeList />} />
+          <Route path={`/pokemonDetails/:name`} element={<PokemonDetails />} />
           <Route path={`/typeDetails/:id`} element={<TypeDetails />} />
         </Routes>
       </PokemonContext.Provider>

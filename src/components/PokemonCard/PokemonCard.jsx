@@ -1,4 +1,4 @@
-import { Routes, Route, Link, useNavigate } from 'react-router-dom'
+import { Routes, Route, Link, useNavigate, Navigate } from 'react-router-dom'
 
 import { useState, useEffect, useContext } from 'react'
 
@@ -7,6 +7,8 @@ import { Shield } from '@mui/icons-material';
 
 export default function PokemonCard(data) {
     const [pokemon, setPokemon] = useState({});
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         fetch(data.data.pokemon.url)
@@ -20,7 +22,9 @@ export default function PokemonCard(data) {
     return (
         (pokemon?.sprites) ?
             ((pokemon?.sprites?.other?.showdown?.front_default) ? (
-                <div className='pokemon-card'>
+                <div onClick={() => {
+                    navigate(`/pokemonDetails/${pokemon.name}`)
+                }} className='pokemon-card'>
                     <img src={pokemon?.sprites?.other?.showdown?.front_default ?? pokemon?.sprites?.front_default} />
                     <p>{pokemon?.name}</p>
                 </div>
