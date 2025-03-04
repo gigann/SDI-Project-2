@@ -1,0 +1,38 @@
+.pokemon-image {
+  display: flex;
+  align-items: center;
+}
+
+.pokemon-image img{
+    width: 150px;
+    height: auto;
+}
+
+.pokemon-information {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5px;
+}
+
+.damage-relations {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.strong-against {
+  display: flex;
+  flex-direction: column;
+}
+
+.strong-against-types {
+  /* display: flex; */
+}
+
+.weak-against {
+  display: flex;
+  flex-direction: column;
+}
+
+.weak-against-types {
+  /* display: flex; */
+}
