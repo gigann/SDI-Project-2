@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
 
 import './Home.css'
+import PokemonTypeCard from '../PokemonTypeCard/PokemonTypeCard.jsx'
 
 function Home() {
     const [typeList, setTypeList] = useState([])
@@ -15,15 +16,14 @@ function Home() {
 
     return (
         <>
-            <button>Reset</button>
+            {/* <button>Reset</button> */}
             <div className = 'pokemon-types-box'>
-                {typeList.map(pokemonType => {
-                    // instantiate the type cards here
-                    return <div key={typeList.indexOf(pokemonType)} className='pokemon-type-card'>{pokemonType.name}</div>;
-                })}
+                {typeList.map(pokemonType => <PokemonTypeCard data={pokemonType} key={typeList.indexOf(pokemonType)}></PokemonTypeCard>
+                )}
             </div>
         </>
     )
 }
 
 export default Home
+
