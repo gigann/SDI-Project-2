@@ -10,7 +10,9 @@ function Home() {
         fetch('https://pokeapi.co/api/v2/type/')
             .then(res => res.json())
             .then(data => {
-                setTypeList(data.results)
+                let results = data.results;
+                results = results.slice(0, -2);
+                setTypeList(results);
             })
     }, [])
 
