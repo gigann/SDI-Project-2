@@ -1,7 +1,18 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import PokemonTypeList from ".PokemonTypeList/PokemonTypeList.jsx";
+import { BrowserRouter } from 'react-router-dom'
+import { render, screen, fireEvent } from "@testing-library/react"
+import PokemonTypeList from '../PokemonTypeList/PokemonTypeList.jsx'
 
-test("Renders the PokemonTypeList page", () => {
-    render(<PokemonTypeList />);
+describe('PokemonTypeList', () => {
 
+    beforeEach(() => {
+      render(
+        <BrowserRouter>
+          <PokemonTypeList />
+        </BrowserRouter>
+      );
+    });
+
+    test("Renders the PokemonTypeList and checks the button text", () => {
+      expect(screen.getByText('PokemonTypeList')).toBeInTheDocument();
+    });
 });

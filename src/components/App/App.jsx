@@ -14,6 +14,10 @@ function App() {
     <>
       <nav>
         <button onClick={() => navigate('/')}>Home</button>
+        <button onClick={() => navigate('/battle')}>Battle</button>
+        <button onClick={() => navigate('/pokemonDetails')}>Pokemon Details</button>
+        <button onClick={() => navigate('/pokemonTypeList')}>Pokemon Type List</button>
+        <button onClick={() => navigate('/typeDetails')}>Type Details</button>
       </nav>
       <Routes>
         <Route path='/' element={<Home/>}/>
