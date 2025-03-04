@@ -13,6 +13,17 @@ function App() {
   const navigate = useNavigate();
   const [details, setDetails] = useState({})
   const value = { details, setDetails }
+  const [typeList, setTypeList] = useState([])
+
+  useEffect(() => {
+    fetch('https://pokeapi.co/api/v2/type/')
+      .then(res => res.json())
+      .then(data => {
+        let results = data.results;
+        results = results.slice(0, -2);
+        setTypeList(results);
+      })
+  }, [])
 
   return (
     <>
@@ -29,11 +40,12 @@ function App() {
           <Route path='/battle' element={<Battle />} />
           <Route path='/pokemonDetails' element={<PokemonDetails />} />
           <Route path='/pokemonTypeList' element={<PokemonTypeList />} />
-          <Route path='/typeDetails' element={<TypeDetails />} />
+          <Route path={`/typeDetails/:id`} element={<TypeDetails />} />
         </Routes>
       </PokemonContext.Provider>
     </>
   )
 }
-
+//<Route path='/'element= {wallets.map(wallet => <Home key={wallet.id} data={wallet}/>)} />
+//<Route path='/id/:id'element={<Details key={wallets.id}/>} />
 export default App
