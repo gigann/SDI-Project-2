@@ -1,0 +1,18 @@
+.pokemon-information {
+  display: flex;
+  justify-content: center;
+}
+
+.damage-relations {
+  display: flex;
+}
+
+.strong-against {
+  display: flex;
+  flex-direction: column;
+}
+
+.weak-against {
+  display: flex;
+  flex-direction: column;
+}

@@ -70,17 +70,36 @@ export default function PokemonDetails() {
 
   return (
     <>
-      <h1>{pokemonInfo.name}</h1>
+      <h1>{pokemonInfo.name?.toUpperCase()}</h1>
       <div className='details-container'>
 
         <div className='pokemon-information'>
+          <div className="pokemon-image">
+              <img src={pokemonInfo.sprites?.other.showdown.front_default} alt={pokemonInfo.name} />
+            </div>
           <div className="physical-stats">
+            <h3>Physical Stats</h3>
             <p>ID: {pokemonInfo.id}</p>
-            <p>Height:{pokemonInfo.height} </p>
-            <p>Weight: {pokemonInfo.weight} </p>
+            <p>Height: {pokemonInfo.height / 10} m </p>
+            <p>Weight: {pokemonInfo.weight / 10} kg </p>
             <p>Type: {pokemonInfo.types?.map((t) => t.type.name).join(", ")}</p>
           </div>
+
+          <div className="pokemon-base-stats">
+            <h3>Base Stats</h3>
+            {pokemonInfo.stats ? (
+              <>
+                <p> HP: {pokemonInfo.stats[0]?.base_stat }</p>
+                <p> Attack: {pokemonInfo.stats[1]?.base_stat } </p>
+                <p> Defense: {pokemonInfo.stats[2]?.base_stat } </p>
+                <p> Special Attack: {pokemonInfo.stats[3]?.base_stat }</p>
+                <p> Special Defense: {pokemonInfo.stats[4]?.base_stat }</p>
+                <p> Speed: {pokemonInfo.stats[5]?.base_stat }</p>
+              </>
+            ) : "None"}
+          </div>
         </div>
+
 
         <div className='damage-relations'>
           <div className='strong-against'>
