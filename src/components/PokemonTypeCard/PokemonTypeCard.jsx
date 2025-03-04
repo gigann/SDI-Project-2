@@ -25,17 +25,22 @@ function PokemonTypeCard(data) {
 
 
     return (
-        <div className='pokemon-type-card'>
+        <div className='pokemon-type-card' key={typeData.id}>
             <img src={typeData?.['sprites']?.['generation-viii']?.['sword-shield']?.['name_icon']} />
 
             <div>
                 <button onClick={() => {
                     setDetails(typeData);
                     navigate('/pokemonTypeList');
+                    // navigate(`/pokemonTypeList/${typeData.name}`);
+
                 }}>
                     Pokemon
                 </button>
-                <button>
+                <button onClick={() => {
+                    setDetails(typeData);
+                    navigate(`/typeDetails/${typeData.id}`);
+                }}>
                     Details
                 </button>
             </div>

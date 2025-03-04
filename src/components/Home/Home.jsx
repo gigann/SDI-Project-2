@@ -20,7 +20,7 @@ function Home() {
         <>
             {/* <button>Reset</button> */}
             <div className = 'pokemon-types-box'>
-                {typeList.map(pokemonType => <PokemonTypeCard data={pokemonType} key={typeList.indexOf(pokemonType)}></PokemonTypeCard>
+                {typeList.map(pokemonType => <PokemonTypeCard data={pokemonType} key={pokemonType.id}></PokemonTypeCard>
                 )}
             </div>
         </>

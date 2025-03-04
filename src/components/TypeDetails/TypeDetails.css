@@ -1,0 +1,24 @@
+.type-details-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.type-details {
+
+}
+
+.strong-types {
+    background-color: green;
+}
+
+.neutral-types {
+background-color: gray;
+}
+
+
+.weak-types {
+background-color: red;
+}
