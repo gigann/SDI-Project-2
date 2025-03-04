@@ -51,13 +51,9 @@ export default function PokemonDetails() {
           setDamageRelations(damageRelationsArray);
 
           setDoubleDamageFrom(removeDuplicates(damageRelationsArray.flatMap((dr) => dr.double_damage_from.map((d) => d.name))));
-
           setDoubleDamageTo(removeDuplicates(damageRelationsArray.flatMap((dr) => dr.double_damage_to.map((d) => d.name))));
-
           setHalfDamageFrom(removeDuplicates(damageRelationsArray.flatMap((dr) => dr.half_damage_from.map((d) => d.name))));
-
           setHalfDamageTo(removeDuplicates(damageRelationsArray.flatMap((dr) => dr.half_damage_to.map((d) => d.name))));
-
         })
         .catch((error) => console.error("Error fetching damage relations:", error));
     }
@@ -73,6 +69,7 @@ export default function PokemonDetails() {
       <h1>{pokemonInfo.name?.toUpperCase()}</h1>
       <div className='details-container'>
 
+        <h2>Pokemon Information</h2>
         <div className='pokemon-information'>
           <div className="pokemon-image">
               <img src={pokemonInfo.sprites?.other.showdown.front_default} alt={pokemonInfo.name} />
@@ -100,23 +97,29 @@ export default function PokemonDetails() {
           </div>
         </div>
 
-
+        <h2>Type Comparison</h2>
         <div className='damage-relations'>
           <div className='strong-against'>
-            <h3>Double Damage To</h3>
-            <p>{doubleDamageTo.length ? doubleDamageTo.join(", ") : "None"}</p>
-            <h3>Half Damage From</h3>
-            <p>{halfDamageFrom.length ? halfDamageFrom.join(", ") : "None"}</p>
+            <h3>Strong Against</h3>
+            <div className='strong-against-types'>
+              <h4>Double Damage To Types</h4>
+              <p>{doubleDamageTo.length ? doubleDamageTo.join(", ") : "None"}</p>
+              <h4>Half Damage From Types</h4>
+              <p>{halfDamageFrom.length ? halfDamageFrom.join(", ") : "None"}</p>
+            </div>
           </div>
           <div className='neutral-against'>
             <h3>Neutral</h3>
             <p>something something</p>
           </div>
           <div className='weak-against'>
-              <h3>Half Damage To</h3>
-              <p>{halfDamageTo.length ? halfDamageTo.join(", ") : "None"}</p>
-              <h3>Double Damage From</h3>
+            <h3>Weak Against</h3>
+            <div className='weak-against-types'>
+              <h4>Double Damage From Types</h4>
               <p>{doubleDamageFrom.length ? doubleDamageFrom.join(", ") : "None"}</p>
+              <h4>Half Damage To Types</h4>
+              <p>{halfDamageTo.length ? halfDamageTo.join(", ") : "None"}</p>
+            </div>
           </div>
         </div>
 
