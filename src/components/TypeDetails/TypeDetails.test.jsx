@@ -1,7 +1,18 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import TypeDetails from ".TypeDetails/TypeDetails.jsx";
+import { BrowserRouter } from 'react-router-dom'
+import { render, screen, fireEvent } from "@testing-library/react"
+import TypeDetails from '../TypeDetails/TypeDetails.jsx'
 
-test("Renders the TypeDetails page", () => {
-    render(<TypeDetails />);
+describe('TypeDetails', () => {
 
+    beforeEach(() => {
+      render(
+        <BrowserRouter>
+          <TypeDetails />
+        </BrowserRouter>
+      );
+    });
+
+    test("Renders the TypeDetails and checks the button text", () => {
+      expect(screen.getByText('TypeDetails')).toBeInTheDocument();
+    });
 });
