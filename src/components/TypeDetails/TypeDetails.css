@@ -6,11 +6,11 @@ p {
 .pokemon-type-row {}
 
 .pokemon-type-effectiveness-cols {
-    display: flex;
-    justify-content: start;
-    align-items: start;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: col; */
 }
 
 .strong-col {
@@ -18,7 +18,7 @@ p {
 }
 
 .neutral-col {
-    /* background-color: darkgoldenrod; */
+    background-color: rgb(50, 50, 50);
 }
 
 .weak-col {
@@ -35,6 +35,8 @@ p {
     align-items: center;
     flex-wrap: wrap;
     flex-direction: row;
+    margin: 10px;
+    border-radius: 16px;
 }
 
 .double-damage-to,
@@ -43,11 +45,10 @@ p {
 .half-damage-from,
 .no-damage-to,
 .no-damage-from,
-.neutral-damage-from,
-.neutral-damage-to {
+.neutral-damage {
     /* box-shadow: 4px 4px 4px 4px black; */
     margin: 10px;
-    border: 1px solid black;
+    border-radius: 8px;
 }
 
 .double-damage-to {
@@ -75,5 +76,10 @@ p {
 }
 
 .neutral-damage {
-    /* background-color: darkgoldenrod; */
+    /* background-color: rgb(60, 60, 60); */
+}
+
+.selected-type {
+    /* width: 200px;
+    transform: scale(2); */
 }
