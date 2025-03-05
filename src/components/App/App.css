@@ -5,4 +5,14 @@
   text-align: center;
 }
 
+nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+#search-input {
+  height: 30px;
+  font-size: larger;
+}
+
 /* TODO: MUI styling */

@@ -42,7 +42,7 @@ export default function PokemonDetails() {
           console.error("Error fetching pokemon info:", error)
         );
     }
-  }, [pokemonInfo]);
+  }, [name]);
 
   // useEffect(() => {
   //   if (pokemonInfo.types && pokemonInfo.types.length > 0) {
