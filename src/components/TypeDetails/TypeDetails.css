@@ -78,3 +78,8 @@ p {
 .neutral-damage {
     /* background-color: rgb(60, 60, 60); */
 }
+
+.selected-type {
+    /* width: 200px;
+    transform: scale(2); */
+}
