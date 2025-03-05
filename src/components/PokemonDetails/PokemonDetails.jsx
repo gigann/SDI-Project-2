@@ -105,6 +105,7 @@ export default function PokemonDetails() {
             <p>ID: {pokemonInfo.id}</p>
             <p>Height: {pokemonInfo.height / 10} m </p>
             <p>Weight: {pokemonInfo.weight / 10} kg </p>
+            <h3>Type</h3>
             {pokemonInfo.types?.map(t =>
               <PokemonTypeCard data={t.type}></PokemonTypeCard>
             )}
@@ -127,80 +128,35 @@ export default function PokemonDetails() {
 
         <h2>Type Comparison</h2>
         <div className='damage-relations'>
-          <div className='strong-against'>
+          <div className='strong-col'>
             <h3>Strong Against</h3>
             <div className='strong-against-types'>
-              <h4>Double Damage To</h4>
-              {/* <div className='double-damage-to'> */}
-              <div>
-                {doubleDamageTo.length ? doubleDamageTo?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
+              {/* <h4>Double Damage To</h4> */}
+              <div className='double-damage-to'>
+                <div>
+                  {doubleDamageTo.length > 0 ? <p>DEALS SUPER-EFFECTIVE DAMAGE TO</p> : <></>}
+                  {doubleDamageTo.length ? doubleDamageTo?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
+                </div>
               </div>
-              {/* <h4>Half Damage From</h4>
-              <div className='half-damage-from'>
-                {halfDamageFrom.length ? halfDamageFrom?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
-              </div> */}
-              {/* <div className='no-damage-from'>
-                <p>Takes 0x damage from:</p>
-                {noDamageFrom.length ? noDamageFrom?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
-              </div> */}
             </div>
           </div>
-          {/* <div className='neutral-against'>
-            <h3>Neutral</h3>
-            <p>something something</p>
-          </div> */}
-          <div className='weak-against'>
+          <div className='weak-col'>
             <h3>Weak Against</h3>
-            <div className='weak-against-types'>
-              {/* <h4>Double Damage From</h4>
-              <div className='double-damage-from'>
-                {doubleDamageFrom.length ? doubleDamageFrom?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
-              </div> */}
-              <h4>Half Damage To</h4>
-              {/* <div className='half-damage-to'> */}
+            <div className='half-damage-to'>
               <div>
-                {halfDamageTo.length ? halfDamageTo?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
+                {halfDamageTo.length > 0 ? <p>DEALS NOT VERY EFFECTIVE DAMAGE TO</p> : <></>}
+                {halfDamageTo.length ? halfDamageTo?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : <></>}
               </div>
               <div>
-                {/* <div className='no-damage-to'> */}
-                <p>Deals 0x damage to</p>
-                {noDamageTo.length ? noDamageTo?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
+                <div className='no-damage-to'>
+                {noDamageTo.length > 0 ? <p>HAS NO EFFECT ON</p> : <></>}
+                {noDamageTo.length ? noDamageTo?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : <></>}
               </div>
             </div>
           </div>
         </div>
-
-        {/* <div className="damage-relations">
-        {damageRelations.length > 0 ? (
-          damageRelations.map((dr, index) => (
-            <div key={index} className="damage-relations-type">
-              <h2>Damage Relations for {pokemonInfo.types[index].type.name}</h2>
-              <p>
-                <strong>Double Damage From:</strong>{" "}
-                {dr.double_damage_from.map((d) => d.name).join(", ")}
-              </p>
-              <p>
-                <strong>Double Damage To:</strong>{" "}
-                {dr.double_damage_to.map((d) => d.name).join(", ")}
-              </p>
-              <p>
-                <strong>Half Damage From:</strong>{" "}
-                {dr.half_damage_from.map((d) => d.name).join(", ")}
-              </p>
-              <p>
-                <strong>Half Damage To:</strong>{" "}
-                {dr.half_damage_to.map((d) => d.name).join(", ")}
-              </p>
-            </div>
-          ))
-        ) : (
-          <p>Loading damage relations...</p>
-        )}
-      </div> */}
-
-      </div>
-
-
+        </div>
+        </div>
     </>
   )
 }

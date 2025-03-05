@@ -25,7 +25,7 @@ export default function PokemonCard(data) {
                 <div onClick={() => {
                     navigate(`/pokemonDetails/${pokemon.name}`)
                 }} className='pokemon-card'>
-                    <img src={pokemon?.sprites?.other?.showdown?.front_default ?? pokemon?.sprites?.front_default} />
+                    <img className='pokemon-card-img' src={pokemon['sprites']['other']['showdown']['front_default'] ?? pokemon?.sprites?.front_default} />
                     <p>{pokemon?.name.toUpperCase()}</p>
                 </div>
             ) :
