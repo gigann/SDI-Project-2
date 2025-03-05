@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom'
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
 
@@ -6,9 +6,9 @@ describe('App', () => {
 
     beforeEach(() => {
       render(
-        <BrowserRouter>
+        <MemoryRouter>
           <App />
-        </BrowserRouter>
+        </MemoryRouter>
       );
     });
 

@@ -12,7 +12,7 @@ describe('PokemonDetails', () => {
       );
     });
 
-    test("Renders the PokemonDetails and checks the button text", () => {
-      expect(screen.getByText('PokemonDetails')).toBeInTheDocument();
+    test("Renders the PokemonDetails and checks the text", () => {
+      expect(screen.getByText('Pokemon Information')).toBeInTheDocument();
     });
 });

@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom'
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { render, screen, fireEvent } from "@testing-library/react"
 import Battle from '../Battle/Battle.jsx'
 
@@ -6,9 +6,9 @@ describe('Battle', () => {
 
     beforeEach(() => {
       render(
-        <BrowserRouter>
+        <MemoryRouter>
           <Battle />
-        </BrowserRouter>
+        </MemoryRouter>
       );
     });
 

@@ -92,7 +92,7 @@ export default function PokemonDetails() {
 
   return (
     <>
-      <h1>{pokemonInfo.name?.toUpperCase()}</h1>
+      <h1>{pokemonInfo?.name?.toUpperCase()}</h1>
       <div className='details-container'>
 
         <h2>Pokemon Information</h2>

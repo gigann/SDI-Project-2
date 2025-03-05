@@ -16,11 +16,15 @@ export default function PokemonTypeList() {
 
   return (
     <>
-      <h1>{pokemonData.name.toUpperCase()}</h1>
+      <h1>{pokemonData?.name ? pokemonData.name.toUpperCase() : "Loading..."}</h1> {/* ✅ Added fallback text to prevent errors */}
 
       <div className='pokemon-type-list'>
-        {pokemonData.pokemon.map(pokemon =>
-          <PokemonCard key={pokemon.name} data={pokemon}></PokemonCard>
+        {pokemonData?.pokemon?.length > 0 ? (
+          pokemonData.pokemon.map(pokemon =>
+            <PokemonCard key={pokemon.name} data={pokemon}></PokemonCard>
+          )
+        ) : (
+          <p>No Pokémon available.</p>
         )}
       </div>
     </>
