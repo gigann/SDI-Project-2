@@ -16,6 +16,23 @@ export default function PokemonDetails() {
   const [noDamageTo, setNoDamageTo] = useState([]);
   const [noDamageFrom, setNoDamageFrom] = useState([]);
 
+  const [defensiveTypes, setDefensiveTypes] = useState([]);
+  // each element in defensiveTypes is a type name and the damage multiplier (x1, x2, x0.25, x4, or x0)
+  // 1. populate defensiveTypes with each type name (normal, rock, steel, etc.) and set the damage multiplier to 1.
+  // 2. loop through type 1 damage relations
+  //   a.) for double_damage_from, multiply damage multiplier by 2.
+  //   b.) for half_damage_from, multiply damage multiplier by 1/2.
+  //   c.) for no_damage_from, multiply damage multiplier by 0.
+  // 3. loop through type 2 damage relations (if applicable)
+  //   a.) for double_damage_from, multiply damage multiplier by 2.
+  //   b.) for half_damage_from, multiply damage multiplier by 1/2.
+  //   c.) for no_damage_from, multiply damage multiplier by 0.
+
+  // 4. for displaying, loop through defensiveTypes
+  //   a.) if multiplier is x2 or x4, put type card in weak against
+  //   b.) if multiplier is x1/2 or x0, put type card in strong against
+  //   c.) if multiplier is x1, put type card in neutral
+
   useEffect(() => {
     if (true) {
       fetch(`https://pokeapi.co/api/v2/pokemon/${name.name}`)
@@ -114,35 +131,38 @@ export default function PokemonDetails() {
             <h3>Strong Against</h3>
             <div className='strong-against-types'>
               <h4>Double Damage To</h4>
-              <div className='double-damage-to'>
+              {/* <div className='double-damage-to'> */}
+              <div>
                 {doubleDamageTo.length ? doubleDamageTo?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
               </div>
-              <h4>Half Damage From</h4>
+              {/* <h4>Half Damage From</h4>
               <div className='half-damage-from'>
                 {halfDamageFrom.length ? halfDamageFrom?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
-              </div>
-              <div className='no-damage-from'>
+              </div> */}
+              {/* <div className='no-damage-from'>
                 <p>Takes 0x damage from:</p>
                 {noDamageFrom.length ? noDamageFrom?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
-              </div>
+              </div> */}
             </div>
           </div>
-          <div className='neutral-against'>
+          {/* <div className='neutral-against'>
             <h3>Neutral</h3>
             <p>something something</p>
-          </div>
+          </div> */}
           <div className='weak-against'>
             <h3>Weak Against</h3>
             <div className='weak-against-types'>
-              <h4>Double Damage From</h4>
+              {/* <h4>Double Damage From</h4>
               <div className='double-damage-from'>
                 {doubleDamageFrom.length ? doubleDamageFrom?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
-              </div>
+              </div> */}
               <h4>Half Damage To</h4>
-              <div className='half-damage-to'>
+              {/* <div className='half-damage-to'> */}
+              <div>
                 {halfDamageTo.length ? halfDamageTo?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
               </div>
-              <div className='no-damage-to'>
+              <div>
+                {/* <div className='no-damage-to'> */}
                 <p>Deals 0x damage to</p>
                 {noDamageTo.length ? noDamageTo?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
               </div>

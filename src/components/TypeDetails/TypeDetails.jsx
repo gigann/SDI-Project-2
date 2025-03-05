@@ -47,67 +47,64 @@ export default function TypeDetails(pokemonType) {
 
       <div className='pokemon-type-effectiveness-cols'>
         <div className='strong-col'>
-          <h2>Strong vs.</h2>
           <div className='double-damage-to'>
-            <p>Deals x2 damage to:</p>
+            {pokemonTypeData.damage_relations.double_damage_to.length > 0 ? <p>DEALS SUPER-EFFECTIVE DAMAGE TO</p> : <></>}
             {pokemonTypeData.damage_relations.double_damage_to.map(pokemonType =>
               <PokemonTypeCard key={pokemonType.name} data={pokemonType}></PokemonTypeCard>
             )}
           </div>
 
           <div className='half-damage-from'>
-            <p>Takes 1/2x damage from:</p>
+            {pokemonTypeData.damage_relations.half_damage_from.length > 0 ? <p>TAKES NOT VERY EFFECTIVE DAMAGE FROM</p> : <></>}
             {pokemonTypeData.damage_relations.half_damage_from.map(pokemonType =>
               <PokemonTypeCard key={pokemonType.name} data={pokemonType}></PokemonTypeCard>
             )}
           </div>
 
           <div className='no-damage-from'>
-            <p>Takes 0x damage from:</p>
+            {pokemonTypeData.damage_relations.no_damage_from.length > 0 ? <p>NOT AFFECTED BY</p> : <></>}
             {pokemonTypeData.damage_relations.no_damage_from.map(pokemonType =>
               <PokemonTypeCard key={pokemonType.name} data={pokemonType}></PokemonTypeCard>
             )}
           </div>
         </div>
 
-        <div className='neutral-col'>
-          <h2>Neutral vs.</h2>
-          <div className='neutral-damage'>
-            <p>Deals/Takes 1x damage to/from:</p>
-            {neutralDamageTypes.map(pokemonType =>
-              <PokemonTypeCard key={pokemonType.name} data={pokemonType}></PokemonTypeCard>
-            )}
-            {/* Filter the context provider list by strong vs. and weak vs.
-            then do map on filtered results to make type cards //const filteredList = list1.filter(item => list2.includes(item));
-
-            */}
-            {/* {pokemonTypeList.value.typeList.filter(pokemonType => !pokemonTypeData.damage_relations[0].includes(pokemonType))} */}
-
-          </div>
-        </div>
-
         <div className='weak-col'>
-          <h2>Weak vs.</h2>
           <div className='double-damage-from'>
-            <p>Takes x2 damage from:</p>
+            {pokemonTypeData.damage_relations.double_damage_from.length > 0 ? <p>TAKES SUPER-EFFECTVE DAMAGE FROM</p> : <></>}
             {pokemonTypeData.damage_relations.double_damage_from.map(pokemonType =>
               <PokemonTypeCard key={pokemonType.name} data={pokemonType}></PokemonTypeCard>
             )}
           </div>
 
           <div className='half-damage-to'>
-            <p>Deals 1/2x damage to:</p>
+            {pokemonTypeData.damage_relations.half_damage_to.length > 0 ? <p>DEALS NOT VERY EFFECTIVE DAMAGE TO</p> : <></>}
             {pokemonTypeData.damage_relations.half_damage_to.map(pokemonType =>
               <PokemonTypeCard key={pokemonType.name} data={pokemonType}></PokemonTypeCard>
             )}
           </div>
 
           <div className='no-damage-to'>
-            <p>Deals 0x damage to</p>
+            {pokemonTypeData.damage_relations.no_damage_to.length > 0 ? <p>HAS NO EFFECT ON</p> : <></>}
             {pokemonTypeData.damage_relations.no_damage_to.map(pokemonType =>
               <PokemonTypeCard key={pokemonType.name} data={pokemonType}></PokemonTypeCard>
             )}
           </div>
+        </div>
+      </div>
+
+      <div className='neutral-col'>
+        <div className='neutral-damage'>
+          <p>NORMAL EFFECTIVENESS</p>
+          {neutralDamageTypes.map(pokemonType =>
+            <PokemonTypeCard key={pokemonType.name} data={pokemonType}></PokemonTypeCard>
+          )}
+          {/* Filter the context provider list by strong vs. and weak vs.
+            then do map on filtered results to make type cards //const filteredList = list1.filter(item => list2.includes(item));
+
+            */}
+          {/* {pokemonTypeList.value.typeList.filter(pokemonType => !pokemonTypeData.damage_relations[0].includes(pokemonType))} */}
+
         </div>
       </div>
     </>
@@ -129,3 +126,12 @@ export default function TypeDetails(pokemonType) {
 // if type isn't in double_damage_to, half_damage_to, or no_damage_to, put it in neutral_damage_to
 
 //const filteredList = list1.filter(item => !list2.includes(item));
+
+// const App = () => {
+//   const isLoggedIn = true;
+//   return (
+//     <div>
+//       {isLoggedIn ? <p>Welcome back!</p> : <p>Please sign in.</p>}
+    {/* </div>
+  );
+ */}

@@ -3,63 +3,77 @@ p {
     margin: 0px;
 }
 
-.pokemon-type-row {
-
-}
+.pokemon-type-row {}
 
 .pokemon-type-effectiveness-cols {
     display: flex;
-    justify-content:start;
+    justify-content: start;
     align-items: start;
     flex-wrap: wrap;
     flex-direction: row;
 }
 
-/* .strong-col {
+.strong-col {
     background-color: darkgreen;
 }
 
 .neutral-col {
-    background-color: darkgoldenrod;
+    /* background-color: darkgoldenrod; */
 }
 
 .weak-col {
     background-color: darkred;
-} */
+}
 
-.double-damage-to, .double-damage-from, .half-damage-to, .half-damage-from, .no-damage-to, .no-damage-from, .neutral-damage-from, .neutral-damage-to{
-    box-shadow: 4px 4px 4px 4px black;
+
+
+.strong-col,
+.neutral-col,
+.weak-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.double-damage-to,
+.double-damage-from,
+.half-damage-to,
+.half-damage-from,
+.no-damage-to,
+.no-damage-from,
+.neutral-damage-from,
+.neutral-damage-to {
+    /* box-shadow: 4px 4px 4px 4px black; */
     margin: 10px;
+    border: 1px solid black;
 }
 
 .double-damage-to {
-    background-color: darkgreen;
+    background-color: green;
 }
 
 .double-damage-from {
-    background-color: darkred;
+    background-color: red;
 }
 
 .half-damage-to {
-    background-color: darkred;
+    background-color: red;
 }
 
 .half-damage-from {
-    background-color: darkgreen;
+    background-color: green;
 }
 
 .no-damage-to {
-    background-color: darkred;
+    background-color: red;
 }
 
 .no-damage-from {
-    background-color: darkgreen;
+    background-color: green;
 }
 
-.neutral-damage-to {
-    background-color: darkgoldenrod;
-}
-
-.neutral-damage-from {
-    background-color: darkgoldenrod;
+.neutral-damage {
+    /* background-color: darkgoldenrod; */
 }

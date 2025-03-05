@@ -1,5 +1,7 @@
 .pokemon-type-card {
+    display: inline-block;
     padding: 10px;
+    transition: all .1s ease-in-out;
     /* box-shadow: inset 4px 4px 16px black; */
     /* border: 2px solid black; */
 }
@@ -8,3 +10,6 @@ button {
     display:inline-block;
 } */
 
+.pokemon-type-card:hover {
+    transform: scale(1.1);
+}

@@ -26,7 +26,7 @@ export default function PokemonCard(data) {
                     navigate(`/pokemonDetails/${pokemon.name}`)
                 }} className='pokemon-card'>
                     <img src={pokemon?.sprites?.other?.showdown?.front_default ?? pokemon?.sprites?.front_default} />
-                    <p>{pokemon?.name}</p>
+                    <p>{pokemon?.name.toUpperCase()}</p>
                 </div>
             ) :
                 (
