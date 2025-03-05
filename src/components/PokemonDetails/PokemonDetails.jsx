@@ -34,14 +34,16 @@ export default function PokemonDetails() {
   //   c.) if multiplier is x1, put type card in neutral
 
   useEffect(() => {
-    if (true) {
+    // if (true) {
+      setPokemonInfo('');
+      console.log(name.name); // infinite loop
       fetch(`https://pokeapi.co/api/v2/pokemon/${name.name}`)
         .then((res) => res.json())
         .then((data) => setPokemonInfo(data))
         .catch((error) =>
           console.error("Error fetching pokemon info:", error)
         );
-    }
+    // }
   }, [name]);
 
   // useEffect(() => {
@@ -106,9 +108,7 @@ export default function PokemonDetails() {
             <p>Height: {pokemonInfo.height / 10} m </p>
             <p>Weight: {pokemonInfo.weight / 10} kg </p>
             <h3>Type</h3>
-            {pokemonInfo.types?.map(t =>
-              <PokemonTypeCard data={t.type}></PokemonTypeCard>
-            )}
+            {pokemonInfo.types?.map(t => <PokemonTypeCard data={t.type}></PokemonTypeCard>)}
           </div>
 
           <div className="pokemon-base-stats">

@@ -10,8 +10,7 @@ import { Shield } from '@mui/icons-material';
 function PokemonTypeCard(data) {
     const navigate = useNavigate();
 
-    const [typeData, setTypeData]
-        = useState({});
+    const [typeData, setTypeData] = useState({});
 
     const { details, setDetails } = useContext(PokemonContext);
 
