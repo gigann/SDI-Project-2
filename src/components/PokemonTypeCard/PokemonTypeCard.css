@@ -1,5 +1,7 @@
 .pokemon-type-card {
     padding: 10px;
+    /* box-shadow: inset 4px 4px 16px black; */
+    /* border: 2px solid black; */
 }
 /*
 button {

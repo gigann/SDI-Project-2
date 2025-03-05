@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import './PokemonDetails.css'
+import '../TypeDetails/TypeDetails.css'
 import PokemonTypeCard from '../PokemonTypeCard/PokemonTypeCard';
 
 export default function PokemonDetails() {
@@ -12,6 +13,8 @@ export default function PokemonDetails() {
   const [doubleDamageTo, setDoubleDamageTo] = useState([]);
   const [halfDamageFrom, setHalfDamageFrom] = useState([]);
   const [halfDamageTo, setHalfDamageTo] = useState([]);
+  const [noDamageTo, setNoDamageTo] = useState([]);
+  const [noDamageFrom, setNoDamageFrom] = useState([]);
 
   useEffect(() => {
     if (true) {
@@ -54,10 +57,12 @@ export default function PokemonDetails() {
           const damageRelationsArray = results.map((result) => result.damage_relations);
           setDamageRelations(damageRelationsArray);
 
-          setDoubleDamageFrom(removeDuplicates(damageRelationsArray.flatMap((dr) => dr.double_damage_from.map((d) => d.name))));
-          setDoubleDamageTo(removeDuplicates(damageRelationsArray.flatMap((dr) => dr.double_damage_to.map((d) => d.name))));
-          setHalfDamageFrom(removeDuplicates(damageRelationsArray.flatMap((dr) => dr.half_damage_from.map((d) => d.name))));
-          setHalfDamageTo(removeDuplicates(damageRelationsArray.flatMap((dr) => dr.half_damage_to.map((d) => d.name))));
+          setDoubleDamageFrom(removeDuplicates(damageRelationsArray.flatMap((dr) => dr.double_damage_from.map((d) => d))));
+          setDoubleDamageTo(removeDuplicates(damageRelationsArray.flatMap((dr) => dr.double_damage_to.map((d) => d))));
+          setHalfDamageFrom(removeDuplicates(damageRelationsArray.flatMap((dr) => dr.half_damage_from.map((d) => d))));
+          setHalfDamageTo(removeDuplicates(damageRelationsArray.flatMap((dr) => dr.half_damage_to.map((d) => d))));
+          setNoDamageTo(removeDuplicates(damageRelationsArray.flatMap((dr) => dr.no_damage_to.map((d) => d))));
+          setNoDamageFrom(removeDuplicates(damageRelationsArray.flatMap((dr) => dr.no_damage_from.map((d) => d))));
         })
         .catch((error) => console.error("Error fetching damage relations:", error));
     }
@@ -108,10 +113,18 @@ export default function PokemonDetails() {
           <div className='strong-against'>
             <h3>Strong Against</h3>
             <div className='strong-against-types'>
-              <h4>Double Damage To Types</h4>
-              <p>{doubleDamageTo.length ? doubleDamageTo.join(", ") : "None"}</p>
-              <h4>Half Damage From Types</h4>
-              <p>{halfDamageFrom.length ? halfDamageFrom.join(", ") : "None"}</p>
+              <h4>Double Damage To</h4>
+              <div className='double-damage-to'>
+                {doubleDamageTo.length ? doubleDamageTo?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
+              </div>
+              <h4>Half Damage From</h4>
+              <div className='half-damage-from'>
+                {halfDamageFrom.length ? halfDamageFrom?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
+              </div>
+              <div className='no-damage-from'>
+                <p>Takes 0x damage from:</p>
+                {noDamageFrom.length ? noDamageFrom?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
+              </div>
             </div>
           </div>
           <div className='neutral-against'>
@@ -121,10 +134,18 @@ export default function PokemonDetails() {
           <div className='weak-against'>
             <h3>Weak Against</h3>
             <div className='weak-against-types'>
-              <h4>Double Damage From Types</h4>
-              <p>{doubleDamageFrom.length ? doubleDamageFrom.join(", ") : "None"}</p>
-              <h4>Half Damage To Types</h4>
-              <p>{halfDamageTo.length ? halfDamageTo.join(", ") : "None"}</p>
+              <h4>Double Damage From</h4>
+              <div className='double-damage-from'>
+                {doubleDamageFrom.length ? doubleDamageFrom?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
+              </div>
+              <h4>Half Damage To</h4>
+              <div className='half-damage-to'>
+                {halfDamageTo.length ? halfDamageTo?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
+              </div>
+              <div className='no-damage-to'>
+                <p>Deals 0x damage to</p>
+                {noDamageTo.length ? noDamageTo?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
+              </div>
             </div>
           </div>
         </div>

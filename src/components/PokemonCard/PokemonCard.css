@@ -1,6 +1,12 @@
 .pokemon-card {
     width: 200px;
     height: 200px;
+    transition: all .2s ease-in-out;
+}
+
+.pokemon-card:hover {
+    transform: scale(1.25);
+    cursor:pointer;
 }
 
 .loader {

@@ -3,26 +3,45 @@ import '../PokemonTypeCard/PokemonTypeCard.css'
 
 
 import PokemonContext from '../App/PokemonContext.jsx';
+import PokemonTypesContext from '../App/PokemonTypesContext.jsx';
 import PokemonTypeCard from '../PokemonTypeCard/PokemonTypeCard.jsx';
 import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom';
-import PokemonTypeList from '../PokemonTypeList/PokemonTypeList.jsx';
 
 export default function TypeDetails(pokemonType) {
   const { id } = useParams();
   const { details } = useContext(PokemonContext);
   const [pokemonTypeData, setPokemonTypeData] = useState(details);
 
+  const typeDetails = useContext(PokemonTypesContext);
+
+  const [neutralDamageTypes, setNeutralDamageTypes] = useState([]);
+
+  // const [neutralDamageTypes, setNeutralDamageTypes] = useState([]);
+
+
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/type/${id}/`)
       .then(res => res.json())
-      .then(data => setPokemonTypeData(data))
+      .then(data => {
+        setPokemonTypeData(data);
+
+        // damage relations
+        let damageRelationsList = [];
+        for (let key in data.damage_relations) {
+          for (let damageType of data.damage_relations[key]) {
+            damageRelationsList.push(damageType);
+          }
+        }
+        // if a damage type does not exist in the damage relations, put it in the neutral damage type list
+        setNeutralDamageTypes(typeDetails.typeList.filter(possibllyNeutralType => damageRelationsList.every(excludedType => possibllyNeutralType.name !== excludedType.name)));
+      })
   }, [id]);
 
   return (
     <>
       <div className='pokemon-type-row'>
-        <h1 className='type-label'>{pokemonTypeData.name}</h1>
+        <h1 className='type-label'>{pokemonTypeData.name.toUpperCase()}</h1>
         {/* <PokemonTypeList/> */}
       </div>
 
@@ -53,11 +72,17 @@ export default function TypeDetails(pokemonType) {
 
         <div className='neutral-col'>
           <h2>Neutral vs.</h2>
-          <div className='neutral-damage-to'>
-            <p>Deals 1x damage to:</p>
-          </div>
-          <div className='neutral-damage-from'>
-            <p>Takes 1x damage from:</p>
+          <div className='neutral-damage'>
+            <p>Deals/Takes 1x damage to/from:</p>
+            {neutralDamageTypes.map(pokemonType =>
+              <PokemonTypeCard key={pokemonType.name} data={pokemonType}></PokemonTypeCard>
+            )}
+            {/* Filter the context provider list by strong vs. and weak vs.
+            then do map on filtered results to make type cards //const filteredList = list1.filter(item => list2.includes(item));
+
+            */}
+            {/* {pokemonTypeList.value.typeList.filter(pokemonType => !pokemonTypeData.damage_relations[0].includes(pokemonType))} */}
+
           </div>
         </div>
 
@@ -97,3 +122,10 @@ export default function TypeDetails(pokemonType) {
 // half_damage_to
 // no_damage_from
 // no_damage_to
+
+
+// if type isn't in double_damage_from, half_damage_from, or no_damage_from, put it in neutral_damage_from
+
+// if type isn't in double_damage_to, half_damage_to, or no_damage_to, put it in neutral_damage_to
+
+//const filteredList = list1.filter(item => !list2.includes(item));

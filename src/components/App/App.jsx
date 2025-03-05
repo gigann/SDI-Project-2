@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react'
 import { Routes, Route, Link, useNavigate } from 'react-router-dom'
 import './App.css'
 import PokemonContext from './PokemonContext.jsx'
+import PokemonTypesContext from './PokemonTypesContext.jsx'
 
 import Home from '../Home/Home.jsx'
 import Battle from '../Battle/Battle.jsx'
@@ -13,7 +14,10 @@ function App() {
   const navigate = useNavigate();
   const [details, setDetails] = useState({})
   const value = { details, setDetails }
+
   const [typeList, setTypeList] = useState([])
+  const typeValue = { typeList, setTypeList }
+
 
   useEffect(() => {
     fetch('https://pokeapi.co/api/v2/type/')
@@ -27,6 +31,7 @@ function App() {
 
   return (
     <>
+      <PokemonTypesContext.Provider value={typeValue}>
       <PokemonContext.Provider value={value}>
         <nav>
           <button onClick={() => navigate('/')}>Home</button>
@@ -42,7 +47,8 @@ function App() {
           <Route path={`/pokemonDetails/:name`} element={<PokemonDetails />} />
           <Route path={`/typeDetails/:id`} element={<TypeDetails />} />
         </Routes>
-      </PokemonContext.Provider>
+        </PokemonContext.Provider>
+      </PokemonTypesContext.Provider>
     </>
   )
 }
