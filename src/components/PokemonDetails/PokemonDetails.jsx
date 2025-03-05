@@ -36,7 +36,7 @@ export default function PokemonDetails() {
   useEffect(() => {
     // if (true) {
       setPokemonInfo('');
-      console.log(name.name); // infinite loop
+      // console.log(name.name); // infinite loop
       fetch(`https://pokeapi.co/api/v2/pokemon/${name.name}`)
         .then((res) => res.json())
         .then((data) => setPokemonInfo(data))
