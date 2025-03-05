@@ -41,7 +41,7 @@ export default function TypeDetails(pokemonType) {
   return (
     <>
       <div className='pokemon-type-row'>
-        <h1 className='type-label'>ATTACKING TYPE</h1>
+        <h1 className='type-label'>TYPE EFFECTIVENESS</h1>
         <PokemonTypeCard className = 'selected-type' key={id} data={{ name: pokemonTypeData.name, url: `https://pokeapi.co/api/v2/type/${id}/`}}></PokemonTypeCard>
       </div>
 

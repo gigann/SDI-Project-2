@@ -126,36 +126,34 @@ export default function PokemonDetails() {
           </div>
         </div>
 
-        <h2>Type Comparison</h2>
+        {/* <h2>Attack Type Comparisons</h2>
+
         <div className='damage-relations'>
           <div className='strong-col'>
-            <h3>Strong Against</h3>
             <div className='strong-against-types'>
-              {/* <h4>Double Damage To</h4> */}
               <div className='double-damage-to'>
                 <div>
-                  {doubleDamageTo.length > 0 ? <p>DEALS SUPER-EFFECTIVE DAMAGE TO</p> : <></>}
+                  {doubleDamageTo.length > 0 ? <h3>DEALS SUPER-EFFECTIVE DAMAGE TO</h3> : <></>}
                   {doubleDamageTo.length ? doubleDamageTo?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : "None"}
                 </div>
               </div>
             </div>
           </div>
           <div className='weak-col'>
-            <h3>Weak Against</h3>
             <div className='half-damage-to'>
               <div>
-                {halfDamageTo.length > 0 ? <p>DEALS NOT VERY EFFECTIVE DAMAGE TO</p> : <></>}
+                {halfDamageTo.length > 0 ? <h3>DEALS NOT VERY EFFECTIVE DAMAGE TO</h3> : <></>}
                 {halfDamageTo.length ? halfDamageTo?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : <></>}
               </div>
               <div>
                 <div className='no-damage-to'>
-                {noDamageTo.length > 0 ? <p>HAS NO EFFECT ON</p> : <></>}
+                {noDamageTo.length > 0 ? <h3>HAS NO EFFECT ON</h3> : <></>}
                 {noDamageTo.length ? noDamageTo?.map(type => <PokemonTypeCard data={type}></PokemonTypeCard>) : <></>}
               </div>
             </div>
           </div>
         </div>
-        </div>
+        </div> */}
         </div>
     </>
   )

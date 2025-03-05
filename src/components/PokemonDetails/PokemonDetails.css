@@ -15,17 +15,33 @@
 }
 
 .damage-relations {
+  /* display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap; */
+
   display: grid;
   grid-template-areas:
     "strong weak";
   grid-template-rows: auto;
   grid-template-columns: 50% 50%;
+
 }
 
 .strong-against {
+
   /* display: flex;
   flex-direction: column; */
   grid-area: strong;
+  align-self: flex-start;
+}
+
+.weak-against {
+
+  /* display: flex;
+  flex-direction: column; */
+  grid-area: weak;
 }
 
 .strong-against-types {
@@ -33,11 +49,6 @@
 
 }
 
-.weak-against {
-  /* display: flex;
-  flex-direction: column; */
-  grid-area: weak;
-}
 
 .weak-against-types {
   /* display: flex; */

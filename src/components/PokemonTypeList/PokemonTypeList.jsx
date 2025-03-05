@@ -18,12 +18,8 @@ export default function PokemonTypeList() {
 
   return (
     <>
-<<<<<<< HEAD
-      <h1>{pokemonData?.name ? pokemonData.name.toUpperCase() : "Loading..."}</h1> {/* ✅ Added fallback text to prevent errors */}
-=======
       <h1>{pokemonData.name.toUpperCase()} TYPE POKEMON</h1>
       <PokemonTypeCard className='selected-type' key={pokemonData.name} data={{ name: pokemonData.name, url: `https://pokeapi.co/api/v2/type/${pokemonData.id}/` }}></PokemonTypeCard>
->>>>>>> e23c41011d51666434d51819840c4cc31a159cbd
 
       <div className='pokemon-type-list'>
         {pokemonData?.pokemon?.length > 0 ? (
