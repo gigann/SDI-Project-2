@@ -12,7 +12,7 @@ describe('Battle', () => {
       );
     });
 
-    test("Renders the Battle and checks the button text", () => {
+    test("Renders the Battle and checks the title text", () => {
       expect(screen.getByText('Battle')).toBeInTheDocument();
     });
 });

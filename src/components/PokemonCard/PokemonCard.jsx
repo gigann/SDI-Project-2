@@ -11,7 +11,7 @@ export default function PokemonCard(data) {
 
 
     useEffect(() => {
-        fetch(data.data.pokemon.url)
+        fetch(data?.data?.pokemon?.url)
             .then(res => res.json())
             .then(poke => {
                 setPokemon(poke)

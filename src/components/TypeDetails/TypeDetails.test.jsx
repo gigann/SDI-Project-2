@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
 import { render, screen, fireEvent } from "@testing-library/react"
 import TypeDetails from '../TypeDetails/TypeDetails.jsx'
 
@@ -6,13 +6,13 @@ describe('TypeDetails', () => {
 
     beforeEach(() => {
       render(
-        <BrowserRouter>
+        <MemoryRouter>
           <TypeDetails />
-        </BrowserRouter>
+        </MemoryRouter>
       );
     });
 
-    test("Renders the TypeDetails and checks the button text", () => {
-      expect(screen.getByText('TypeDetails')).toBeInTheDocument();
+    test("Renders the TypeDetails and checks the title text", () => {
+      expect(screen.getByText('TYPE EFFECTIVENESS')).toBeInTheDocument();
     });
 });

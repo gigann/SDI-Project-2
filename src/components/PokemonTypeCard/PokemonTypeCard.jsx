@@ -15,7 +15,7 @@ function PokemonTypeCard(data) {
     const { details, setDetails } = useContext(PokemonContext);
 
     useEffect(() => {
-        fetch(data.data.url)
+        fetch(data.data?.url)
             .then(res => res.json())
             .then(data => {
                 setTypeData(data)

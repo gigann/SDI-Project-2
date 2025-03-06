@@ -49,7 +49,7 @@ function App() {
       <PokemonTypesContext.Provider value={typeValue}>
       <PokemonContext.Provider value={value}>
         <nav>
-          <button onClick={() => navigate('/')}>Home</button>
+          <button onClick={() => navigate('/')}>Pokemon Types</button>
           <button onClick={() => navigate('/battle')}>Battle</button>
           <form id="search-form" onSubmit={handleSearch}>
             <input
@@ -60,7 +60,7 @@ function App() {
               onChange={(e) => setSearchQuery(e.target.value)}
               size="25"
             />
-            <button id="search-btn" type="submit">Search</button>
+            <button id="search-btn" type="submit">Pokemon Search</button>
           </form>
           {error && <p style={{ color: 'red', marginLeft: '10px', marginTop:'5px' }}>{error}</p>}
           {/* <button onClick={() => navigate('/pokemonDetails')}>Pokemon Details</button> */}

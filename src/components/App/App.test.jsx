@@ -12,7 +12,7 @@ describe('App', () => {
       );
     });
 
-    test("Renders the App and checks the button text", () => {
-      expect(screen.getByText('Home')).toBeInTheDocument();
+    test("Renders the App and checks the button and title text", () => {
+      expect(screen.getAllByText('Pokemon Types').length).toBe(2);
     });
 });

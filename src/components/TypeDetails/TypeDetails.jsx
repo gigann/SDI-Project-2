@@ -48,22 +48,22 @@ export default function TypeDetails(pokemonType) {
       <div className='pokemon-type-effectiveness-cols'>
         <div className='strong-col'>
           <div className='double-damage-to'>
-            {pokemonTypeData.damage_relations.double_damage_to.length > 0 ? <p>DEALS SUPER-EFFECTIVE DAMAGE TO</p> : <></>}
-            {pokemonTypeData.damage_relations.double_damage_to.map(pokemonType =>
+            {pokemonTypeData.damage_relations?.double_damage_to.length > 0 ? <p>DEALS SUPER-EFFECTIVE DAMAGE TO</p> : <></>}
+            {pokemonTypeData.damage_relations?.double_damage_to.map(pokemonType =>
               <PokemonTypeCard key={pokemonType.name} data={pokemonType}></PokemonTypeCard>
             )}
           </div>
 
           <div className='half-damage-from'>
-            {pokemonTypeData.damage_relations.half_damage_from.length > 0 ? <p>TAKES NOT VERY EFFECTIVE DAMAGE FROM</p> : <></>}
-            {pokemonTypeData.damage_relations.half_damage_from.map(pokemonType =>
+            {pokemonTypeData.damage_relations?.half_damage_from.length > 0 ? <p>TAKES NOT VERY EFFECTIVE DAMAGE FROM</p> : <></>}
+            {pokemonTypeData.damage_relations?.half_damage_from.map(pokemonType =>
               <PokemonTypeCard key={pokemonType.name} data={pokemonType}></PokemonTypeCard>
             )}
           </div>
 
           <div className='no-damage-from'>
-            {pokemonTypeData.damage_relations.no_damage_from.length > 0 ? <p>NOT AFFECTED BY</p> : <></>}
-            {pokemonTypeData.damage_relations.no_damage_from.map(pokemonType =>
+            {pokemonTypeData.damage_relations?.no_damage_from.length > 0 ? <p>NOT AFFECTED BY</p> : <></>}
+            {pokemonTypeData.damage_relations?.no_damage_from.map(pokemonType =>
               <PokemonTypeCard key={pokemonType.name} data={pokemonType}></PokemonTypeCard>
             )}
           </div>
@@ -71,22 +71,22 @@ export default function TypeDetails(pokemonType) {
 
         <div className='weak-col'>
           <div className='double-damage-from'>
-            {pokemonTypeData.damage_relations.double_damage_from.length > 0 ? <p>TAKES SUPER-EFFECTVE DAMAGE FROM</p> : <></>}
-            {pokemonTypeData.damage_relations.double_damage_from.map(pokemonType =>
+            {pokemonTypeData.damage_relations?.double_damage_from.length > 0 ? <p>TAKES SUPER-EFFECTVE DAMAGE FROM</p> : <></>}
+            {pokemonTypeData.damage_relations?.double_damage_from.map(pokemonType =>
               <PokemonTypeCard key={pokemonType.name} data={pokemonType}></PokemonTypeCard>
             )}
           </div>
 
           <div className='half-damage-to'>
-            {pokemonTypeData.damage_relations.half_damage_to.length > 0 ? <p>DEALS NOT VERY EFFECTIVE DAMAGE TO</p> : <></>}
-            {pokemonTypeData.damage_relations.half_damage_to.map(pokemonType =>
+            {pokemonTypeData.damage_relations?.half_damage_to.length > 0 ? <p>DEALS NOT VERY EFFECTIVE DAMAGE TO</p> : <></>}
+            {pokemonTypeData.damage_relations?.half_damage_to.map(pokemonType =>
               <PokemonTypeCard key={pokemonType.name} data={pokemonType}></PokemonTypeCard>
             )}
           </div>
 
           <div className='no-damage-to'>
-            {pokemonTypeData.damage_relations.no_damage_to.length > 0 ? <p>HAS NO EFFECT ON</p> : <></>}
-            {pokemonTypeData.damage_relations.no_damage_to.map(pokemonType =>
+            {pokemonTypeData.damage_relations?.no_damage_to.length > 0 ? <p>HAS NO EFFECT ON</p> : <></>}
+            {pokemonTypeData.damage_relations?.no_damage_to.map(pokemonType =>
               <PokemonTypeCard key={pokemonType.name} data={pokemonType}></PokemonTypeCard>
             )}
           </div>
