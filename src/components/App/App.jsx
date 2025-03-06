@@ -10,7 +10,7 @@ import PokemonDetails from '../PokemonDetails/PokemonDetails.jsx'
 import PokemonTypeList from '../PokemonTypeList/PokemonTypeList.jsx'
 import TypeDetails from '../TypeDetails/TypeDetails.jsx'
 
-import colorMode from '../../hooks/colorMode.js'
+import CustomSwitch from '../../hooks/CustomSwitch.jsx'
 
 function App() {
   const navigate = useNavigate();
@@ -21,8 +21,6 @@ function App() {
   const typeValue = { typeList, setTypeList }
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState("");
-
-  const { mode, toggleMode } = colorMode();
 
   useEffect(() => {
     fetch('https://pokeapi.co/api/v2/type/')
@@ -51,7 +49,7 @@ function App() {
       <PokemonTypesContext.Provider value={typeValue}>
         <PokemonContext.Provider value={value}>
           <nav>
-            <button onClick={toggleMode}>Toggle Dark Mode</button>
+            <CustomSwitch />
             <button onClick={() => navigate('/')}>Pokemon Types</button>
             <button onClick={() => navigate('/battle')}>Battle</button>
             <form id="search-form" onSubmit={handleSearch}>
