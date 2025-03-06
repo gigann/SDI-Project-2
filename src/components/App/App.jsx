@@ -10,6 +10,8 @@ import PokemonDetails from '../PokemonDetails/PokemonDetails.jsx'
 import PokemonTypeList from '../PokemonTypeList/PokemonTypeList.jsx'
 import TypeDetails from '../TypeDetails/TypeDetails.jsx'
 
+import colorMode from '../../hooks/colorMode.js'
+
 function App() {
   const navigate = useNavigate();
   const [details, setDetails] = useState({})
@@ -20,7 +22,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState("");
 
-
+  const { mode, toggleMode } = colorMode();
 
   useEffect(() => {
     fetch('https://pokeapi.co/api/v2/type/')
@@ -47,33 +49,34 @@ function App() {
   return (
     <>
       <PokemonTypesContext.Provider value={typeValue}>
-      <PokemonContext.Provider value={value}>
-        <nav>
-          <button onClick={() => navigate('/')}>Pokemon Types</button>
-          <button onClick={() => navigate('/battle')}>Battle</button>
-          <form id="search-form" onSubmit={handleSearch}>
-            <input
-              id="search-input"
-              type="text"
-              placeholder="Enter Pokemon Name or ID"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              size="25"
-            />
-            <button id="search-btn" type="submit">Pokemon Search</button>
-          </form>
-          {error && <p style={{ color: 'red', marginLeft: '10px', marginTop:'5px' }}>{error}</p>}
-          {/* <button onClick={() => navigate('/pokemonDetails')}>Pokemon Details</button> */}
-          {/* <button onClick={() => navigate('/pokemonTypeList')}>Pokemon Type List</button> */}
-          {/* <button onClick={() => navigate('/typeDetails')}>Type Details</button> */}
-        </nav>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/battle' element={<Battle />} />
-          <Route path='/pokemonTypeList' element={<PokemonTypeList />} />
-          <Route path={`/pokemonDetails/:name`} element={<PokemonDetails />} />
-          <Route path={`/typeDetails/:id`} element={<TypeDetails />} />
-        </Routes>
+        <PokemonContext.Provider value={value}>
+          <nav>
+            <button onClick={toggleMode}>Toggle Dark Mode</button>
+            <button onClick={() => navigate('/')}>Pokemon Types</button>
+            <button onClick={() => navigate('/battle')}>Battle</button>
+            <form id="search-form" onSubmit={handleSearch}>
+              <input
+                id="search-input"
+                type="text"
+                placeholder="Enter Pokemon Name or ID"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                size="25"
+              />
+              <button id="search-btn" type="submit">Pokemon Search</button>
+            </form>
+            {error && <p style={{ color: 'red', marginLeft: '10px', marginTop: '5px' }}>{error}</p>}
+            {/* <button onClick={() => navigate('/pokemonDetails')}>Pokemon Details</button> */}
+            {/* <button onClick={() => navigate('/pokemonTypeList')}>Pokemon Type List</button> */}
+            {/* <button onClick={() => navigate('/typeDetails')}>Type Details</button> */}
+          </nav>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/battle' element={<Battle />} />
+            <Route path='/pokemonTypeList' element={<PokemonTypeList />} />
+            <Route path={`/pokemonDetails/:name`} element={<PokemonDetails />} />
+            <Route path={`/typeDetails/:id`} element={<TypeDetails />} />
+          </Routes>
         </PokemonContext.Provider>
       </PokemonTypesContext.Provider>
     </>

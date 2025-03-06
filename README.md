@@ -3,12 +3,17 @@
 ## Purpose
 This **React Vite** application fetches and displays **Pokemon types, stats, and damage relations** using the **PokeAPI**. It provides an interactive and responsive UI for Pokemon data exploration.
 
+### Problem Statement
+As a Pokemon enthusiast who loves to battle, I want a simple website to compare Pokemon types and receive Pokemon recommendations, so that I can maximize my chances of winning.
+
+Given that type match-ups play a crucial role in battles, when I compare a Pokemon type, then I should receive clear and concise information about its strengths, weaknesses, and effectiveness, as well as a list of recommended Pokemon that have a strong advantage against it.
+
 ## Features
 
 - Fetch Pokemon details using **PokeAPI**
 - Display **Pokemon and Pokemon Types**
 - Show **base stats** (HP, Attack, Defense, etc.)
-- View **damage relations** (Strong Against, Weak Against, Neutral)
+- View **damage relations** (Strong Against, Weak Against, Neutral) by type
 
 ## Installation & Running the App
 
@@ -41,6 +46,8 @@ or
 
 **3.** Select Pokemon to view a list of Pokemon of that type.
 
+At any point you can navigate back to the type list page by clicking on the Pokemon Type button or searching a specific Pokemon by name or id.
+
 *This application is designed to seamlessly navigate between Pokemon types, Pokemon of that type, and type comparisons.*
 
 
@@ -48,12 +55,12 @@ or
 
 ## Running Test
 
-**Install Dependencies**
+**All test dependencies should already be in the package.json and install automatically with you ran npm install**
 
 Navigate to your project folder
-```sh
+<!-- ```sh
 npm install --save-dev vitest @testing-library/react @testing-library/jest-dom
-```
+``` -->
 
 **Run Test**
 ```sh
@@ -64,9 +71,10 @@ or
 npm run test
 ```
 
+This should run all of the test for each component.
+
 ## Future Improvements
 - Mock Battle between two selected Pokemon
-- Add a search bar to look up Pokemon by name or ID
 - Show Pokemon moves and abilities
 - Implement dark mode
 

@@ -34,7 +34,6 @@
   /* display: flex;
   flex-direction: column; */
   grid-area: strong;
-  align-self: flex-start;
 }
 
 .weak-against {
