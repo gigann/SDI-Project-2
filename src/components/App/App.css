@@ -20,12 +20,14 @@ html[color-mode='dark-mode'] {
   --text-color: rgba(255, 255, 255);
   --background-body: rgba(0, 0, 0);
   --button-color: rgba(50, 50, 50);
+  --col-color: rgba(100, 100, 100);
 }
 
 html[color-mode='light-mode'] {
   --text-color: rgba(0, 0, 0);
   --background-color: rgba(255, 255, 255);
   --button-color: rgba(200, 200, 200);
+  --col-color: rgba(100, 100, 100);
 }
 
 body {
@@ -35,5 +37,11 @@ body {
 button, input {
   color: var(--text-color);
   background-color: var(--button-color);
+  /* margin: 2px; */
+}
+
+.neutral-col {
+  color: var(--text-color);
+  background-color: var(--col-color);
 }
 

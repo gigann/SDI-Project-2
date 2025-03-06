@@ -14,14 +14,17 @@ p {
 }
 
 .strong-col {
+    color: #ffffff;
     background-color: darkgreen;
 }
 
 .neutral-col {
-    background-color: rgb(50, 50, 50);
+    color: #ffffff;
+    background-color: rgb(100, 100, 100);
 }
 
 .weak-col {
+    color: #ffffff;
     background-color: darkred;
 }
 
