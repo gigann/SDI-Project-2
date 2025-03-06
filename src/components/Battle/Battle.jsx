@@ -31,8 +31,11 @@ export default function Battle() {
     <>
       <h1>Battle</h1>
       {/* {console.log(playerOne)} */}
-      <Combatant className='player-one' pokemonData={playerOne}></Combatant>
-      <Combatant className='player-two' pokemonData={playerTwo}></Combatant>
+      <div className='battle-arena'>
+        <Combatant className='player-one' pokemonData={playerOne} player='one'></Combatant>
+        <Combatant className='player-two' pokemonData={playerTwo} player='two'></Combatant>
+      </div>
+
     </>
   )
 }

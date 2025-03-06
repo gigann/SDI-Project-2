@@ -55,7 +55,7 @@ At any point you can navigate back to the type list page by clicking on the Poke
 
 ## Running Test
 
-**All test dependencies should already be in the package.json and install automatically with you ran npm install**
+**All test dependencies should already be in the package.json and installed automatically with you ran npm install**
 
 Navigate to your project folder
 <!-- ```sh

@@ -3,16 +3,21 @@ import './Combatant.css'
 import { Routes, Route, Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect, useContext } from 'react'
 
-export default function Combatant(pokemonData) {
-    const [pokemon, setPokemon] = useState(pokemonData);
-
+export default function Combatant({ player, pokemonData }) {
     return (
         <>
-            {pokemon ? (
-                <div>{pokemon.pokemonData.name}</div>
-                /* <img src={pokemon.pokemonData.sprites.front_default} /> */
-            ): (
-                <div>loading</div>
+
+
+            {(player === 'one') ? (
+                <div>
+                    <p>{pokemonData.name}</p>
+                    <img src={pokemonData?.sprites?.other?.showdown?.front_default} />
+                </div>
+            ) : (
+                <div>
+                    <img src={pokemonData?.sprites?.other?.showdown?.back_default} />
+                    <p>{pokemonData.name}</p>
+                </div>
             )}
         </>
     )
