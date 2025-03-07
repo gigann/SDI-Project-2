@@ -8,11 +8,14 @@
 nav {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 #search-input {
-  height: 50px;
-  font-size: larger;
+  height: 35px;
+  font-size: large;
+  border-radius: 10px;
 }
 
 /* Dark/Light Mode */

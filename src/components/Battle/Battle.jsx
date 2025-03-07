@@ -26,6 +26,7 @@ export default function Battle() {
   }, [])
 
 
+  // processCombat?
 
   return (
     <>
@@ -36,6 +37,17 @@ export default function Battle() {
         <Combatant className='player-two' pokemonData={playerTwo} player='two'></Combatant>
       </div>
 
+      <div className='combat-log'>
+        <h2>COMBAT LOG</h2>
+      </div>
+
+      <div>test</div>
+      <button onClick={startFight}>START FIGHT</button>
     </>
   )
 }
+
+
+// Battle system
+// Iterate through each pokemon
+// Attack opposing pokemon
