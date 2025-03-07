@@ -10,11 +10,13 @@ import PokemonDetails from '../PokemonDetails/PokemonDetails.jsx';
 import PokemonTypeList from '../PokemonTypeList/PokemonTypeList.jsx';
 import TypeDetails from '../TypeDetails/TypeDetails.jsx';
 
-import colorMode from '../../hooks/colorMode.js';
+// import colorMode from '../../hooks/colorMode.js';
+import CustomSwitch from '../../hooks/CustomSwitch.jsx';
+
 
 function App() {
   const navigate = useNavigate();
-  const { mode, toggleMode } = colorMode();
+  // const { mode, toggleMode } = colorMode();
 
   const [pokemonOne, setPokemonOne] = useState(null);
   const [pokemonTwo, setPokemonTwo] = useState(null);
@@ -68,7 +70,8 @@ function App() {
       <PokemonTypesContext.Provider value={{}}>
         <PokemonContext.Provider value={{}}>
           <nav>
-            <button onClick={toggleMode}>Toggle Dark Mode</button>
+            <CustomSwitch />
+            {/* <button onClick={toggleMode}>Toggle Dark Mode</button> */}
             <button onClick={() => navigate('/')}>Pokemon Types</button>
             <button onClick={() => { fetchRandomPokemon(); navigate('/battle'); }}>New Battle</button>
 
